@@ -1,0 +1,14 @@
+// Optional Zed settings (Settings > Open Settings).
+{
+  "languages": {
+    "PICO-8": {
+      "tab_size": 1,
+      "language_servers": ["pico8-luals", "..."]
+    }
+  },
+  "lsp": {
+    "pico8-luals": {
+      // "binary": { "path": "/opt/homebrew/bin/lua-language-server" }
+    }
+  }
+}

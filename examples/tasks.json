@@ -1,0 +1,30 @@
+// Copy into your project's .zed/tasks.json (or merge into ~/.config/zed/tasks.json).
+// Set PICO8 to your executable if it is not on PATH, e.g. on macOS:
+//   /Applications/PICO-8.app/Contents/MacOS/pico8
+[
+  {
+    "label": "PICO-8: run cart",
+    "command": "${PICO8:-pico8} -run \"$ZED_FILE\"",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "reveal": "never",
+    "tags": ["pico8"]
+  },
+  {
+    "label": "PICO-8: open cart in editor",
+    "command": "${PICO8:-pico8} \"$ZED_FILE\"",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "reveal": "never"
+  },
+  {
+    "label": "PICO-8: export HTML (web)",
+    "command": "${PICO8:-pico8} \"$ZED_FILE\" -export \"$ZED_STEM.html\"",
+    "reveal": "always"
+  },
+  {
+    "label": "PICO-8: export .bin (all platforms)",
+    "command": "${PICO8:-pico8} \"$ZED_FILE\" -export \"$ZED_STEM.bin\"",
+    "reveal": "always"
+  }
+]

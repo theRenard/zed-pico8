@@ -1,0 +1,9 @@
+// Optional: add to your Zed keymap to run the cart with a shortcut.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-alt-r": ["task::Spawn", { "task_name": "PICO-8: run cart" }]
+    }
+  }
+]

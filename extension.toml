@@ -1,7 +1,7 @@
 id = "pico8"
 name = "PICO-8"
-description = "PICO-8 support: .p8 syntax highlighting, API snippets, and optional Lua language server."
-version = "0.1.0"
+description = "PICO-8 support: .p8 syntax highlighting, API snippets, and PICO-8 language server."
+version = "0.2.0"
 schema_version = 1
 authors = ["theRenard"]
 repository = "https://github.com/theRenard/zed-pico8"
@@ -12,9 +12,9 @@ snippets = ["./snippets/pico-8.json"]
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-lua"
 rev = "10fe0054734eec83049514ea2e718b2a56acd0c9"
 
-[language_servers.pico8-luals]
-name = "LuaLS (PICO-8)"
+[language_servers.pico8-ls]
+name = "PICO-8 LS"
 languages = ["PICO-8"]
 
-[language_servers.pico8-luals.language_ids]
-"PICO-8" = "lua"
+[language_servers.pico8-ls.language_ids]
+"PICO-8" = "pico-8"

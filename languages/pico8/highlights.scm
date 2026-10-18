@@ -55,7 +55,7 @@
 ; PICO-8 API
 (function_call
   name: (identifier) @function.builtin
-  (#any-of? @function.builtin "abs" "add" "all" "atan2" "band" "bnot" "bor" "btn" "btnp" "bxor" "camera" "cartdata" "ceil" "chr" "circ" "circfill" "clip" "cls" "cocreate" "color" "coresume" "cos" "costatus" "count" "cstore" "cursor" "del" "deli" "dget" "dset" "extcmd" "fget" "fillp" "flip" "flr" "foreach" "fset" "ipairs" "line" "lshr" "map" "max" "memcpy" "memset" "menuitem" "mget" "mid" "min" "mset" "music" "ord" "pairs" "pal" "palt" "peek" "peek2" "peek4" "pget" "poke" "poke2" "poke4" "print" "printh" "pset" "rect" "rectfill" "reload" "rnd" "rotl" "rotr" "run" "sfx" "sget" "sgn" "shl" "shr" "sin" "split" "spr" "sqrt" "srand" "sset" "sspr" "stat" "stop" "sub" "t" "time" "tline" "tonum" "tostr" "yield"))
+  (#any-of? @function.builtin "abs" "add" "all" "atan2" "band" "bnot" "bor" "btn" "btnp" "bxor" "camera" "cartdata" "ceil" "chr" "circ" "circfill" "clip" "cls" "cocreate" "color" "coresume" "cos" "costatus" "count" "cstore" "cursor" "del" "deli" "dget" "dset" "extcmd" "fget" "fillp" "flip" "flr" "foreach" "fset" "ipairs" "line" "lshr" "map" "max" "memcpy" "memset" "menuitem" "mget" "mid" "min" "mset" "music" "ord" "pairs" "pal" "palt" "peek" "peek2" "peek4" "pget" "poke" "poke2" "poke4" "print" "printh" "pset" "rect" "rectfill" "reload" "rnd" "rotl" "rotr" "run" "sfx" "sget" "sgn" "shl" "shr" "sin" "split" "spr" "sqrt" "srand" "sset" "sspr" "stat" "stop" "sub" "t" "time" "tline" "tonum" "tostr" "yield" "oval" "ovalfill" "rrect" "rrectfill" "reboot" "pack" "unpack" "select" "type" "setmetatable" "getmetatable" "rawget" "rawset" "rawequal" "rawlen" "assert" "serial" "load" "save" "reset" "ls" "folder" "info" "resume"))
 
 ; PICO-8 callbacks
 (function_declaration

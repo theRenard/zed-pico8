@@ -1,28 +1,14 @@
-// Optional Zed settings (Settings > Open Settings).
-// The extension already applies these LuaLS defaults; copy this block only if
-// you want to tweak them (setting `settings` replaces the defaults entirely).
+// Optional Zed settings (Settings > Open Settings). Everything works without these.
 {
   "languages": {
     "PICO-8": {
-      "tab_size": 1,
-      "language_servers": ["pico8-luals", "..."]
+      "tab_size": 1
     }
   },
   "lsp": {
-    "pico8-luals": {
-      // "binary": { "path": "/opt/homebrew/bin/lua-language-server" },
-      "settings": {
-        "Lua": {
-          "runtime": {
-            "version": "Lua 5.4",
-            "nonstandardSymbol": ["!=", "+=", "-=", "*=", "/=", "%=", "^=", "|=", "&=", "<<=", ">>="]
-          },
-          "diagnostics": {
-            "disable": ["lowercase-global"],
-            "globals": ["_init", "_update", "_update60", "_draw", "abs", "add", "all", "atan2", "band", "bnot", "bor", "btn", "btnp", "bxor", "camera", "cartdata", "ceil", "chr", "circ", "circfill", "clip", "cls", "cocreate", "color", "coresume", "cos", "costatus", "count", "cstore", "cursor", "del", "deli", "dget", "dset", "extcmd", "fget", "fillp", "flip", "flr", "foreach", "fset", "line", "lshr", "map", "max", "memcpy", "memset", "menuitem", "mget", "mid", "min", "mset", "music", "ord", "pal", "palt", "peek", "peek2", "peek4", "pget", "poke", "poke2", "poke4", "print", "printh", "pset", "rect", "rectfill", "reload", "rnd", "rotl", "rotr", "run", "sfx", "sget", "sgn", "shl", "shr", "sin", "split", "spr", "sqrt", "srand", "sset", "sspr", "stat", "stop", "sub", "t", "time", "tline", "tonum", "tostr", "yield"]
-          }
-        }
-      }
+    "pico8-ls": {
+      // Use your own build/install instead of the downloaded one:
+      // "binary": { "path": "/path/to/pico8-ls", "arguments": ["--stdio"] }
     }
   }
 }

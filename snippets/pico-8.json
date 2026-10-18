@@ -382,6 +382,55 @@
     ],
     "description": "Stretch-draw spritesheet region"
   },
+  "oval": {
+    "prefix": "oval",
+    "body": [
+      "oval(${1:x0},${2:y0},${3:x1},${4:y1}${5:,col})"
+    ],
+    "description": "Oval outline"
+  },
+  "ovalfill": {
+    "prefix": "ovalfill",
+    "body": [
+      "ovalfill(${1:x0},${2:y0},${3:x1},${4:y1}${5:,col})"
+    ],
+    "description": "Filled oval"
+  },
+  "rrect": {
+    "prefix": "rrect",
+    "body": [
+      "rrect(${1:x},${2:y},${3:w},${4:h},${5:r}${6:,col})"
+    ],
+    "description": "Rounded rectangle outline"
+  },
+  "rrectfill": {
+    "prefix": "rrectfill",
+    "body": [
+      "rrectfill(${1:x},${2:y},${3:w},${4:h},${5:r}${6:,col})"
+    ],
+    "description": "Filled rounded rectangle"
+  },
+  "pack": {
+    "prefix": "pack",
+    "body": [
+      "pack(${1:...})"
+    ],
+    "description": "Pack values into a table"
+  },
+  "unpack": {
+    "prefix": "unpack",
+    "body": [
+      "unpack(${1:t}${2:,i,j})"
+    ],
+    "description": "Unpack table values"
+  },
+  "select": {
+    "prefix": "select",
+    "body": [
+      "select(${1:n},${2:...})"
+    ],
+    "description": "Select from varargs"
+  },
   "fillp": {
     "prefix": "fillp",
     "body": [

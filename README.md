@@ -6,7 +6,7 @@ A [Zed](https://zed.dev) extension for [PICO-8](https://www.lexaloffle.com/pico-
 
 - **`.p8` language** with Lua syntax highlighting (tree-sitter-lua), PICO-8 API functions and `_init/_update/_update60/_draw` highlighted, cart section markers (`__lua__`, `__gfx__`, ...) recognised, outline, bracket matching, auto-indent, comment toggling. Files starting with `pico-8 cartridge` are detected automatically.
 - **110+ snippets** for the PICO-8 API and common patterns: `game`, `game30`, `pheader`, `pconsts`, `spr`, `rectfill`, `btn`, `cartdata`, `forall`, memory address constants, and more. Optional parameters include their leading comma so you can delete them quickly.
-- **Lua language server** (LuaLS) preconfigured for PICO-8 (`!=`, `+=` etc. accepted, PICO-8 globals defined).
+- **PICO-8 language server** ([japhib/pico8-ls](https://github.com/japhib/pico8-ls)): syntax errors, undefined-variable warnings, go to definition, find references, hover docs and signature help for the built-ins, completion, `#include` support. Downloaded automatically.
 - **Run / open tasks** for launching PICO-8 from Zed (see `examples/tasks.json`).
 
 ## Install
@@ -19,7 +19,11 @@ Zed extensions cannot add commands, so use [tasks](https://zed.dev/docs/tasks). 
 
 ## Language server
 
-Starts automatically for PICO-8 files, preconfigured for PICO-8 syntax and globals. It uses `lua-language-server` from your PATH, or downloads it automatically. Override with `lsp.pico8-luals.binary.path`, or replace the defaults via `lsp.pico8-luals.settings` (see `examples/settings.json`).
+Starts automatically for PICO-8 files. The extension downloads a bundled build of [japhib/pico8-ls](https://github.com/japhib/pico8-ls) from this repo's releases and runs it with Zed's built-in Node, so you need nothing extra. To use your own install instead, put `pico8-ls` on your PATH (e.g. via Mason) or set `lsp.pico8-ls.binary.path` (see `examples/settings.json`).
+
+### Updating the bundled server (maintainers)
+
+Run the **Build language server** workflow (Actions tab) with the upstream tag, e.g. `v0.7.0`. It bundles the server, smoke-tests it, and publishes a release `server-<tag>` with the asset `pico8-ls-server.js`. The extension always downloads the latest release.
 
 ## Using it with `.lua` files
 
@@ -32,7 +36,7 @@ Starts automatically for PICO-8 files, preconfigured for PICO-8 syntax and globa
 ## Known limitations
 
 - Highlighting uses the Lua grammar. PICO-8-only syntax (`!=`, `+=`, `\`, `?"text"`, `@`/`%`/`$` peek operators) and the binary data sections (`__gfx__`, `__map__`, ...) are not Lua, so Zed's error recovery may colour them oddly. A dedicated tree-sitter grammar would fix this; contributions welcome.
-- The language server sees the whole `.p8` file, so the header and data sections can produce syntax diagnostics. Keeping code in `.lua` files pulled in with `#include` avoids this.
+- Language server features come from upstream; see [japhib/pico8-ls](https://github.com/japhib/pico8-ls/issues) for what is and isn't supported.
 
 ## Development
 
@@ -40,4 +44,4 @@ Snippets are generated: edit `scripts/gen_snippets.py`, then run `python3 script
 
 ## License
 
-MIT. Highlight and indent queries are adapted from [zed-extensions/lua](https://github.com/zed-extensions/lua).
+MIT. The language server is [japhib/pico8-ls](https://github.com/japhib/pico8-ls) (MIT, by JanPaul Bergeson). Highlight and indent queries are adapted from [zed-extensions/lua](https://github.com/zed-extensions/lua).

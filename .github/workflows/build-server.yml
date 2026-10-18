@@ -1,0 +1,55 @@
+name: Build language server
+
+# Bundles japhib/pico8-ls (MIT) into a single JS file and publishes it as a release asset,
+# which the extension downloads at runtime. Run manually when upstream releases a new version.
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: "japhib/pico8-ls tag or branch to build"
+        required: true
+        default: "v0.7.0"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: japhib/pico8-ls
+          ref: ${{ inputs.upstream_ref }}
+          path: upstream
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install and bundle server
+        working-directory: upstream
+        run: |
+          npm install
+          npm run esbuild-server
+          test -s server/out-min/main.js
+      - name: Smoke test (server starts and answers initialize)
+        working-directory: upstream
+        run: |
+          node -e '
+          const { spawn } = require("child_process");
+          const p = spawn("node", ["server/out-min/main.js", "--stdio"]);
+          const body = JSON.stringify({jsonrpc:"2.0",id:1,method:"initialize",params:{processId:null,rootUri:null,capabilities:{}}});
+          let out = "";
+          p.stdout.on("data", d => { out += d; if (out.includes("\"id\":1")) { console.log("initialize OK"); p.kill(); process.exit(0); } });
+          p.stdin.write(`Content-Length: ${Buffer.byteLength(body)}\r\n\r\n${body}`);
+          setTimeout(() => { console.error("timeout"); process.exit(1); }, 15000);
+          '
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: server-${{ inputs.upstream_ref }}
+        run: |
+          cp upstream/server/out-min/main.js pico8-ls-server.js
+          gh release create "$TAG" pico8-ls-server.js \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "PICO-8 language server ${{ inputs.upstream_ref }}" \
+            --notes "Bundled build of https://github.com/japhib/pico8-ls at ${{ inputs.upstream_ref }} (MIT)."

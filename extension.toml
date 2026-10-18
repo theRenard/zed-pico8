@@ -15,7 +15,6 @@ rev = "10fe0054734eec83049514ea2e718b2a56acd0c9"
 [language_servers.pico8-luals]
 name = "LuaLS (PICO-8)"
 languages = ["PICO-8"]
-opt_in_languages = ["PICO-8"]
 
 [language_servers.pico8-luals.language_ids]
 "PICO-8" = "lua"

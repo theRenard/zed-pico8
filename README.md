@@ -19,11 +19,7 @@ Zed extensions cannot add commands, so use [tasks](https://zed.dev/docs/tasks). 
 
 ## Language server
 
-Starts automatically for PICO-8 files. The extension downloads a bundled build of [japhib/pico8-ls](https://github.com/japhib/pico8-ls) from this repo's releases and runs it with Zed's built-in Node, so you need nothing extra. To use your own install instead, put `pico8-ls` on your PATH (e.g. via Mason) or set `lsp.pico8-ls.binary.path` (see `examples/settings.json`).
-
-### Updating the bundled server (maintainers)
-
-Run the **Build language server** workflow (Actions tab) with the upstream tag, e.g. `v0.7.0`. It bundles the server, smoke-tests it, and publishes a release `server-<tag>` with the asset `pico8-ls-server.js`. The extension always downloads the latest release.
+Starts automatically for PICO-8 files. The extension downloads the latest standalone build of [japhib/pico8-ls](https://github.com/japhib/pico8-ls) from its GitHub releases and runs it with Zed's built-in Node, so you need nothing extra. To use your own install instead, put `pico8-ls` on your PATH (e.g. via Mason) or set `lsp.pico8-ls.binary.path` (see `examples/settings.json`).
 
 ## Using it with `.lua` files
 

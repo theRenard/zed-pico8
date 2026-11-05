@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.1
+- Download the language server directly from japhib/pico8-ls releases (`pico8-ls-server.js`); remove the local build workflow.
+
 ## 0.2.0
 - Replace LuaLS with the PICO-8-aware language server japhib/pico8-ls (bundled and published by a GitHub Actions workflow).
 

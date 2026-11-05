@@ -2,8 +2,8 @@ use std::fs;
 use zed_extension_api::{self as zed, serde_json, settings::LspSettings, LanguageServerId, Result};
 
 const SERVER_ID: &str = "pico8-ls";
-/// Repo whose releases carry the bundled server (built by .github/workflows/build-server.yml).
-const RELEASE_REPO: &str = "theRenard/zed-pico8";
+/// Upstream repo whose releases carry the standalone server bundle (`pico8-ls-server.js`).
+const RELEASE_REPO: &str = "japhib/pico8-ls";
 const ASSET_NAME: &str = "pico8-ls-server.js";
 const DIR_PREFIX: &str = "pico8-ls-";
 

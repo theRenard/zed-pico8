@@ -1,7 +1,7 @@
 id = "pico8"
 name = "PICO-8"
 description = "PICO-8 support: .p8 syntax highlighting, API snippets, and PICO-8 language server."
-version = "0.2.0"
+version = "0.2.1"
 schema_version = 1
 authors = ["theRenard"]
 repository = "https://github.com/theRenard/zed-pico8"

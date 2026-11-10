@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.2
+- Fix highlighting breaking after strings with PICO-8 control codes such as `"\^:..."` (grammar fork accepts PICO-8 escapes).
+
 ## 0.2.1
 - Download the language server directly from japhib/pico8-ls releases (`pico8-ls-server.js`); remove the local build workflow.
 

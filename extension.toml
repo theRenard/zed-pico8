@@ -1,7 +1,7 @@
 id = "pico8"
 name = "PICO-8"
 description = "PICO-8 support: .p8 syntax highlighting, API snippets, and PICO-8 language server."
-version = "0.2.1"
+version = "0.2.2"
 schema_version = 1
 authors = ["theRenard"]
 repository = "https://github.com/theRenard/zed-pico8"
@@ -9,8 +9,9 @@ repository = "https://github.com/theRenard/zed-pico8"
 snippets = ["./snippets/pico-8.json"]
 
 [grammars.lua]
-repository = "https://github.com/tree-sitter-grammars/tree-sitter-lua"
-rev = "10fe0054734eec83049514ea2e718b2a56acd0c9"
+# Fork of tree-sitter-grammars/tree-sitter-lua that accepts PICO-8 string escapes (\^, \*, ...).
+repository = "https://github.com/theRenard/tree-sitter-lua"
+rev = "e396d05d94b9c5dba51d6f362b8dfc8a21a684da"
 
 [language_servers.pico8-ls]
 name = "PICO-8 LS"

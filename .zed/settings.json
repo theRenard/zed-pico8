@@ -1,0 +1,6 @@
+// Project settings: open the test fixtures as PICO-8 (not plain Lua), like a real cart would be.
+{
+  "file_types": {
+    "PICO-8": ["**/tests/fixtures/**/*.lua"]
+  }
+}

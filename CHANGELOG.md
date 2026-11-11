@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.0
+- Switch from tree-sitter-lua to a PICO-8 grammar (fork of mgmalheiros/tree-sitter-pico8). PICO-8 syntax (`!=`, `+=`, `..=`, `\`, `?`, shorthand `if`), `\^` string escapes, `#include` lines and the `.p8` cart sections now parse; highlighting no longer breaks for the rest of the file. Headerless `.lua` files (`#include`d code) are supported.
+
 ## 0.2.2
 - Fix highlighting breaking after strings with PICO-8 control codes such as `"\^:..."` (grammar fork accepts PICO-8 escapes).
 

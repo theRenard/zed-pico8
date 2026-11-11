@@ -4,7 +4,7 @@ A [Zed](https://zed.dev) extension for [PICO-8](https://www.lexaloffle.com/pico-
 
 ## Features
 
-- **`.p8` language** with Lua syntax highlighting (tree-sitter-lua), PICO-8 API functions and `_init/_update/_update60/_draw` highlighted, cart section markers (`__lua__`, `__gfx__`, ...) recognised, outline, bracket matching, auto-indent, comment toggling. Files starting with `pico-8 cartridge` are detected automatically.
+- **`.p8` language** with PICO-8 syntax highlighting (tree-sitter, `!=`, `+=`, `?`, `\^` string codes and `#include` supported; headerless `.lua` files work too), PICO-8 API functions and `_init/_update/_update60/_draw` highlighted, cart section markers (`__lua__`, `__gfx__`, ...) recognised, outline, bracket matching, auto-indent, comment toggling. Files starting with `pico-8 cartridge` are detected automatically.
 - **110+ snippets** for the PICO-8 API and common patterns: `game`, `game30`, `pheader`, `pconsts`, `spr`, `rectfill`, `btn`, `cartdata`, `forall`, memory address constants, and more. Optional parameters include their leading comma so you can delete them quickly.
 - **PICO-8 language server** ([japhib/pico8-ls](https://github.com/japhib/pico8-ls)): syntax errors, undefined-variable warnings, go to definition, find references, hover docs and signature help for the built-ins, completion, `#include` support. Downloaded automatically.
 - **Run / open tasks** for launching PICO-8 from Zed (see `examples/tasks.json`).
@@ -31,7 +31,7 @@ Starts automatically for PICO-8 files. The extension downloads the latest standa
 
 ## Known limitations
 
-- Highlighting uses the Lua grammar. PICO-8-only syntax (`!=`, `+=`, `\`, `?"text"`, `@`/`%`/`$` peek operators) and the binary data sections (`__gfx__`, `__map__`, ...) are not Lua, so Zed's error recovery may colour them oddly. A dedicated tree-sitter grammar would fix this; contributions welcome.
+- Highlighting uses a fork of [mgmalheiros/tree-sitter-pico8](https://github.com/mgmalheiros/tree-sitter-pico8). Unusual or very new PICO-8 syntax may still colour oddly; please open an issue with a snippet.
 - Language server features come from upstream; see [japhib/pico8-ls](https://github.com/japhib/pico8-ls/issues) for what is and isn't supported.
 
 ## Development
@@ -40,4 +40,4 @@ Snippets are generated: edit `scripts/gen_snippets.py`, then run `python3 script
 
 ## License
 
-MIT. The language server is [japhib/pico8-ls](https://github.com/japhib/pico8-ls) (MIT, by JanPaul Bergeson). Highlight and indent queries are adapted from [zed-extensions/lua](https://github.com/zed-extensions/lua).
+MIT. The grammar is a fork of [mgmalheiros/tree-sitter-pico8](https://github.com/mgmalheiros/tree-sitter-pico8) (MIT). The language server is [japhib/pico8-ls](https://github.com/japhib/pico8-ls) (MIT, by JanPaul Bergeson). Highlight and indent queries are adapted from [zed-extensions/lua](https://github.com/zed-extensions/lua).

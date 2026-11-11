@@ -1,5 +1,5 @@
 name = "PICO-8"
-grammar = "lua"
+grammar = "pico8"
 path_suffixes = ["p8"]
 first_line_pattern = "^pico-8 cartridge"
 line_comments = ["-- "]
